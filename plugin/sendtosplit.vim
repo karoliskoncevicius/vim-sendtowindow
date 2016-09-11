@@ -1,14 +1,14 @@
-let g:sendtosplit_defaults=1
+let g:sendtosplit_use_defaults=1
 
-function! s:SendDirection(type, direction)
+function! s:SendToSplit(type, direction)
   let s:saved_register=@@
   let s:saved_registerK=@k
   " Obtain wanted text
   if a:type == 'v' || a:type=='V' || a:type=="\<C-V>"
     normal! `<v`>y
-  elseif a:type ==# 'char'
+  elseif a:type ==# "char"
     normal! `[v`]y
-  elseif a:type ==# 'line'
+  elseif a:type ==# "line"
     normal! `[V`]$y
   endif
   " Was the cursor at the end of line?
@@ -34,35 +34,45 @@ function! s:SendDirection(type, direction)
   " Position the cursor for the next action
   if s:endofline
     normal! j0
-  elseif a:type ==# 'char'
+  elseif a:type ==# "char"
     normal! l
   endif
-  " restore register
+  " Restore register
   let @@=s:saved_register
   let @k=s:saved_registerK
 endfunction
 
-function! s:SendRightOp(type)
-  call s:SendDirection(a:type, 'l')
+function! s:SendSplitRight(type)
+  call s:SendToSplit(a:type, 'l')
 endfunction
-function! s:SendLeftOp(type)
-  call s:SendDirection(a:type, 'h')
+function! s:SendSplitLeft(type)
+  call s:SendToSplit(a:type, 'h')
 endfunction
-function! s:SendUpOp(type)
-  call s:SendDirection(a:type, 'k')
+function! s:SendSplitUp(type)
+  call s:SendToSplit(a:type, 'k')
 endfunction
-function! s:SendDownOp(type)
-  call s:SendDirection(a:type, 'j')
+function! s:SendSplitDown(type)
+  call s:SendToSplit(a:type, 'j')
 endfunction
 
-if g:sendtosplit_defaults
-  nnoremap <silent> <c-l> :set operatorfunc=<sid>SendRightOp<CR>g@
-  vnoremap <silent> <c-l> :<C-U>call <sid>SendRightOp(visualmode())<CR>
-  nnoremap <silent> <c-h> :set operatorfunc=<sid>SendLeftOp<CR>g@
-  vnoremap <silent> <c-h> :<C-U>call <sid>SendLeftOp(visualmode())<CR>
-  nnoremap <silent> <c-k> :set operatorfunc=<sid>SendUpOp<CR>g@
-  vnoremap <silent> <c-k> :<C-U>call <sid>SendUpOp(visualmode())<CR>
-  nnoremap <silent> <c-j> :set operatorfunc=<sid>SendDownOp<CR>g@
-  vnoremap <silent> <c-j> :<C-U>call <sid>SendDownOp(visualmode())<CR>
+nnoremap <silent> <Plug>SendUp    :<C-U> set operatorfunc=<SID>SendSplitUp<CR>g@
+nnoremap <silent> <Plug>SendDown  :<C-U> set operatorfunc=<SID>SendSplitDown<CR>g@
+nnoremap <silent> <Plug>SendRight :<C-U> set operatorfunc=<SID>SendSplitRight<CR>g@
+nnoremap <silent> <Plug>SendLeft  :<C-U> set operatorfunc=<SID>SendSplitLeft<CR>g@
+
+vnoremap <silent> <Plug>SendUpV    :<C-U> call <SID>SendUp(visualmode())<CR>
+vnoremap <silent> <Plug>SendDowV   :<C-U> call <SID>SendDown(visualmode())<CR>
+vnoremap <silent> <Plug>SendRightV :<C-U> call <SID>SendRight(visualmode())<CR>
+vnoremap <silent> <Plug>SendLeftV  :<C-U> call <SID>SendLeft(visualmode())<CR>
+
+if g:sendtosplit_use_defaults
+  nnoremap <c-l> <Plug>SendRight
+  vnoremap <c-l> <Plug>SendRightV
+  nnoremap <c-h> <Plug>SendLeft
+  vnoremap <c-h> <Plug>SendLeftV
+  nnoremap <c-k> <Plug>SendUp
+  vnoremap <c-k> <Plug>SendUpV
+  nnoremap <c-j> <Plug>SendDown
+  vnoremap <c-j> <Plug>SendDownV
 endif
 
