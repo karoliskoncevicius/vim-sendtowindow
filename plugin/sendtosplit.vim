@@ -66,13 +66,13 @@ vnoremap <silent> <Plug>SendRightV :<C-U> call <SID>SendSplitRight(visualmode())
 vnoremap <silent> <Plug>SendLeftV  :<C-U> call <SID>SendSplitLeft(visualmode())<CR>
 
 if g:sendtosplit_use_defaults
-  nnoremap <c-l> <Plug>SendRight
-  vnoremap <c-l> <Plug>SendRightV
-  nnoremap <c-h> <Plug>SendLeft
-  vnoremap <c-h> <Plug>SendLeftV
-  nnoremap <c-k> <Plug>SendUp
-  vnoremap <c-k> <Plug>SendUpV
-  nnoremap <c-j> <Plug>SendDown
-  vnoremap <c-j> <Plug>SendDownV
+  nmap <c-l> <Plug>SendRight
+  xmap <c-l> <Plug>SendRightV
+  nmap <c-h> <Plug>SendLeft
+  xmap <c-h> <Plug>SendLeftV
+  nmap <c-k> <Plug>SendUp
+  xmap <c-k> <Plug>SendUpV
+  nmap <c-j> <Plug>SendDown
+  xmap <c-j> <Plug>SendDownV
 endif
 
