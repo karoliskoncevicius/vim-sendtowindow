@@ -61,18 +61,18 @@ nnoremap <silent> <Plug>SendRight :<C-U> set operatorfunc=<SID>SendSplitRight<CR
 nnoremap <silent> <Plug>SendLeft  :<C-U> set operatorfunc=<SID>SendSplitLeft<CR>g@
 
 vnoremap <silent> <Plug>SendUpV    :<C-U> call <SID>SendSplitUp(visualmode())<CR>
-vnoremap <silent> <Plug>SendDowV   :<C-U> call <SID>SendSplitDown(visualmode())<CR>
+vnoremap <silent> <Plug>SendDownV   :<C-U> call <SID>SendSplitDown(visualmode())<CR>
 vnoremap <silent> <Plug>SendRightV :<C-U> call <SID>SendSplitRight(visualmode())<CR>
 vnoremap <silent> <Plug>SendLeftV  :<C-U> call <SID>SendSplitLeft(visualmode())<CR>
 
 if g:sendtosplit_use_defaults
   nmap <c-l> <Plug>SendRight
-  vmap <c-l> <Plug>SendRightV
+  xmap <c-l> <Plug>SendRightV
   nmap <c-h> <Plug>SendLeft
-  vmap <c-h> <Plug>SendLeftV
+  xmap <c-h> <Plug>SendLeftV
   nmap <c-k> <Plug>SendUp
-  vmap <c-k> <Plug>SendUpV
+  xmap <c-k> <Plug>SendUpV
   nmap <c-j> <Plug>SendDown
-  vmap <c-j> <Plug>SendDownV
+  xmap <c-j> <Plug>SendDownV
 endif
 
