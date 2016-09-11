@@ -60,10 +60,10 @@ nnoremap <silent> <Plug>SendDown  :<C-U> set operatorfunc=<SID>SendSplitDown<CR>
 nnoremap <silent> <Plug>SendRight :<C-U> set operatorfunc=<SID>SendSplitRight<CR>g@
 nnoremap <silent> <Plug>SendLeft  :<C-U> set operatorfunc=<SID>SendSplitLeft<CR>g@
 
-vnoremap <silent> <Plug>SendUpV    :<C-U> call <SID>SendUp(visualmode())<CR>
-vnoremap <silent> <Plug>SendDowV   :<C-U> call <SID>SendDown(visualmode())<CR>
-vnoremap <silent> <Plug>SendRightV :<C-U> call <SID>SendRight(visualmode())<CR>
-vnoremap <silent> <Plug>SendLeftV  :<C-U> call <SID>SendLeft(visualmode())<CR>
+vnoremap <silent> <Plug>SendUpV    :<C-U> call <SID>SendSplitUp(visualmode())<CR>
+vnoremap <silent> <Plug>SendDowV   :<C-U> call <SID>SendSplitDown(visualmode())<CR>
+vnoremap <silent> <Plug>SendRightV :<C-U> call <SID>SendSplitRight(visualmode())<CR>
+vnoremap <silent> <Plug>SendLeftV  :<C-U> call <SID>SendSplitLeft(visualmode())<CR>
 
 if g:sendtosplit_use_defaults
   nnoremap <c-l> <Plug>SendRight
