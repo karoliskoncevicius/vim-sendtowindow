@@ -22,7 +22,7 @@ function! s:SendToSplit(type, direction)
   " Insert text
   normal! gp
   " Ammend end of line charater based on buffer type
-  if s:endofline && a:type ==# "char"
+  if s:endofline
     if &buftype ==# "terminal"
       let @k="\r"
     else
