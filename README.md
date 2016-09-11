@@ -23,12 +23,12 @@ Or manualluy copy the contents of the **plugin** folder to your
 
 By default it uses the following maps:
 
-* <c-l> sends to the left split
-* <c-k> sends to the top split
-* <c-j> sends to the bottom split
-* <c-h> sends to the right split
+* `<c-l>` sends to the left split
+* `<c-k>` sends to the top split
+* `<c-j>` sends to the bottom split
+* `<c-h>` sends to the right split
 
-Here <c-l> is control+l
+Here `<c-l>` is control+l
 
 In order to change the above key maps add the following to you *vimrc*:
 
