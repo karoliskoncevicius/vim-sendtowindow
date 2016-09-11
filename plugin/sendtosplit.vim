@@ -56,13 +56,13 @@ function! s:SendDownOp(type)
 endfunction
 
 if g:sendtosplit_defaults
-  nnoremap <silent> <c-l> :set operatorfunc=SendRightOp<CR>g@
-  vnoremap <silent> <c-l> :<C-U>call SendRightOp(visualmode())<CR>
-  nnoremap <silent> <c-h> :set operatorfunc=SendLeftOp<CR>g@
-  vnoremap <silent> <c-h> :<C-U>call SendLeftOp(visualmode())<CR>
-  nnoremap <silent> <c-k> :set operatorfunc=SendUpOp<CR>g@
-  vnoremap <silent> <c-k> :<C-U>call SendUpOp(visualmode())<CR>
-  nnoremap <silent> <c-j> :set operatorfunc=SendDownOp<CR>g@
-  vnoremap <silent> <c-j> :<C-U>call SendDownOp(visualmode())<CR>
+  nnoremap <silent> <c-l> :set operatorfunc=<sid>SendRightOp<CR>g@
+  vnoremap <silent> <c-l> :<C-U>call <sid>SendRightOp(visualmode())<CR>
+  nnoremap <silent> <c-h> :set operatorfunc=<sid>SendLeftOp<CR>g@
+  vnoremap <silent> <c-h> :<C-U>call <sid>SendLeftOp(visualmode())<CR>
+  nnoremap <silent> <c-k> :set operatorfunc=<sid>SendUpOp<CR>g@
+  vnoremap <silent> <c-k> :<C-U>call <sid>SendUpOp(visualmode())<CR>
+  nnoremap <silent> <c-j> :set operatorfunc=<sid>SendDownOp<CR>g@
+  vnoremap <silent> <c-j> :<C-U>call <sid>SendDownOp(visualmode())<CR>
 endif
 
