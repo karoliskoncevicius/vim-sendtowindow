@@ -1,6 +1,6 @@
-# vim-sendtosplit
+# vim-sendtowindow
 
-Vim operator used to send text from one window split to another.
+Vim operator used to send text from one window to another.
 
 Main use case is sending code to and from the NeoVim's `:terminal` buffer.
 
@@ -8,7 +8,7 @@ Main use case is sending code to and from the NeoVim's `:terminal` buffer.
 
 With your favorite plugin manager. In my case it's vim-plug:
 
-`Plug 'KKPMW/vim-sendtosplit'`
+`Plug 'KKPMW/vim-sendtowindow'`
 
 Or manualluy copy the contents of the **plugin** folder to your
 **./vim/plugin/** directory.
@@ -23,16 +23,16 @@ Or manualluy copy the contents of the **plugin** folder to your
 
 By default it uses the following maps:
 
-* `<c-l>` sends to the left split
-* `<c-k>` sends to the top split
-* `<c-j>` sends to the bottom split
-* `<c-h>` sends to the right split
+* `<c-l>` sends to the left window
+* `<c-k>` sends to the top window
+* `<c-j>` sends to the bottom window
+* `<c-h>` sends to the right window
 
 Here `<c-l>` is control+l
 
 In order to change the above key maps add the following to you *vimrc*:
 
-    let g:sendtosplit_use_defaults=0
+    let g:sendtowindow_use_defaults=0
     nmap L <Plug>SendRight
     xmap L <Plug>SendRightV
     nmap H <Plug>SendLeft

@@ -1,6 +1,6 @@
-let g:sendtosplit_use_defaults=1
+let g:sendtowindow_use_defaults=1
 
-function! s:SendToSplit(type, direction)
+function! s:SendToWindow(type, direction)
   let s:saved_register=@@
   let s:saved_registerK=@k
   " Obtain wanted text
@@ -42,30 +42,30 @@ function! s:SendToSplit(type, direction)
   let @k=s:saved_registerK
 endfunction
 
-function! s:SendSplitRight(type)
-  call s:SendToSplit(a:type, 'l')
+function! s:SendRight(type)
+  call s:SendToWindow(a:type, 'l')
 endfunction
-function! s:SendSplitLeft(type)
-  call s:SendToSplit(a:type, 'h')
+function! s:SendLeft(type)
+  call s:SendToWindow(a:type, 'h')
 endfunction
-function! s:SendSplitUp(type)
-  call s:SendToSplit(a:type, 'k')
+function! s:SendUp(type)
+  call s:SendToWindow(a:type, 'k')
 endfunction
-function! s:SendSplitDown(type)
-  call s:SendToSplit(a:type, 'j')
+function! s:SendDown(type)
+  call s:SendToWindow(a:type, 'j')
 endfunction
 
-nnoremap <silent> <Plug>SendUp    :<C-U> set operatorfunc=<SID>SendSplitUp<CR>g@
-nnoremap <silent> <Plug>SendDown  :<C-U> set operatorfunc=<SID>SendSplitDown<CR>g@
-nnoremap <silent> <Plug>SendRight :<C-U> set operatorfunc=<SID>SendSplitRight<CR>g@
-nnoremap <silent> <Plug>SendLeft  :<C-U> set operatorfunc=<SID>SendSplitLeft<CR>g@
+nnoremap <silent> <Plug>SendUp    :<C-U> set operatorfunc=<SID>SendUp<CR>g@
+nnoremap <silent> <Plug>SendDown  :<C-U> set operatorfunc=<SID>SendDown<CR>g@
+nnoremap <silent> <Plug>SendRight :<C-U> set operatorfunc=<SID>SendRight<CR>g@
+nnoremap <silent> <Plug>SendLeft  :<C-U> set operatorfunc=<SID>SendLeft<CR>g@
 
-vnoremap <silent> <Plug>SendUpV    :<C-U> call <SID>SendSplitUp(visualmode())<CR>
-vnoremap <silent> <Plug>SendDownV   :<C-U> call <SID>SendSplitDown(visualmode())<CR>
-vnoremap <silent> <Plug>SendRightV :<C-U> call <SID>SendSplitRight(visualmode())<CR>
-vnoremap <silent> <Plug>SendLeftV  :<C-U> call <SID>SendSplitLeft(visualmode())<CR>
+vnoremap <silent> <Plug>SendUpV    :<C-U> call <SID>SendUp(visualmode())<CR>
+vnoremap <silent> <Plug>SendDownV   :<C-U> call <SID>SendDown(visualmode())<CR>
+vnoremap <silent> <Plug>SendRightV :<C-U> call <SID>SendRight(visualmode())<CR>
+vnoremap <silent> <Plug>SendLeftV  :<C-U> call <SID>SendLeft(visualmode())<CR>
 
-if g:sendtosplit_use_defaults
+if g:sendtowindow_use_defaults
   nmap <c-l> <Plug>SendRight
   xmap <c-l> <Plug>SendRightV
   nmap <c-h> <Plug>SendLeft
