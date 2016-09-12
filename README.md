@@ -10,7 +10,7 @@ With your favorite plugin manager. In my case it's vim-plug:
 
 `Plug 'KKPMW/vim-sendtowindow'`
 
-Or manualluy copy the contents of the **plugin** folder to your
+Or manually copy the contents of the **plugin** folder to your
 **./vim/plugin/** directory.
 
 ## Features ##
