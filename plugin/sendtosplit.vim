@@ -63,7 +63,7 @@ vnoremap <silent> <Plug>SendDownV  :<C-U> call <SID>SendDown(visualmode())<CR>
 vnoremap <silent> <Plug>SendRightV :<C-U> call <SID>SendRight(visualmode())<CR>
 vnoremap <silent> <Plug>SendLeftV  :<C-U> call <SID>SendLeft(visualmode())<CR>
 
-if !exists("g:sendtowindow_use_defaults") || ! g:sendtowindow_use_defaults
+if !exists("g:sendtowindow_use_defaults") || g:sendtowindow_use_defaults
   nmap <c-l> <Plug>SendRight
   xmap <c-l> <Plug>SendRightV
   nmap <c-h> <Plug>SendLeft
