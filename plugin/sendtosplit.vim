@@ -10,9 +10,9 @@ function! s:SendToWindow(type, direction)
     normal! `[V`]$y
   endif
   " Was the cursor at the end of line?
-  normal! gv\<c-\>\<c-n>
+  call setpos(".", getpos("'>"))
   let s:endofline = 0
-  if col(".") >= col("$")-1
+  if col(".") >=# col("$")-1
     let s:endofline = 1
   endif
   " Go to the wanted split
