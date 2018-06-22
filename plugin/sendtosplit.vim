@@ -20,12 +20,11 @@ function! s:SendToWindow(type, direction)
   " Insert text
   normal! gp
   " Ammend end of line charater based on buffer type
-  if s:endofline
-    if &buftype ==# "terminal"
-      let @k="\r"
-    else
-      let @k="\n"
-    endif
+  if &buftype ==# "terminal"
+    let @k="\r"
+    normal! "kp
+  elseif s:endofline
+    let @k="\n"
     normal! "kp
   endif
   wincmd p
