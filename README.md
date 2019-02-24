@@ -1,8 +1,8 @@
 # vim-sendtowindow
 
-Vim operator used to send text from one window to another.
+Vim operator to send text from one window to another.
 
-Main use case is sending code to and from the NeoVim's `:terminal` buffer.
+Main use case is sending code to and from the REPL running inside `:terminal` buffer.
 
 ## Installation ##
 
@@ -23,12 +23,10 @@ Or manually copy the contents of the **plugin** folder to your
 
 By default it uses the following maps:
 
-* `<c-l>` sends to the left window
-* `<c-k>` sends to the top window
-* `<c-j>` sends to the bottom window
-* `<c-h>` sends to the right window
-
-Here `<c-l>` is control+l
+* `<space>l` sends to the left window
+* `<space>k` sends to the top window
+* `<space>j` sends to the bottom window
+* `<space>h` sends to the right window
 
 In order to change the above key maps add the following to you *vimrc*:
 
@@ -43,6 +41,4 @@ In order to change the above key maps add the following to you *vimrc*:
     xmap J <Plug>SendDownV
 
 This would map all the commands to L, H, K and J respectively.
-
-
 
