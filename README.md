@@ -6,9 +6,25 @@ Main use case is sending code to and from the REPL running inside `:terminal` bu
 
 ## Demo ##
 
-1. Sending lines
+1. Sending lines using motions
 
 ![demo1](https://i.imgur.com/qsB11um.gif)
+
+2. Sending parts of a line using motions
+
+![demo2](https://i.imgur.com/wSzV7nV.gif)
+
+3. Sending paragraphs using text objects
+
+![demo3](https://i.imgur.com/gmJ6mow.gif)
+
+4. Sending text using visual selections
+
+![demo4](https://i.imgur.com/mp6F160.gif)
+
+5. Sending commands back - from REPL to script
+
+![demo5](https://i.imgur.com/jhEcq7g.gif)
 
 ## Installation ##
 
