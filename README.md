@@ -4,6 +4,12 @@ Vim operator to send text from one window to another.
 
 Main use case is sending code to and from the REPL running inside `:terminal` buffer.
 
+## Demo ##
+
+1. Sending lines
+
+![demo1](https://i.imgur.com/qsB11um.gif)
+
 ## Installation ##
 
 With your favorite plugin manager. In my case it's vim-plug:
