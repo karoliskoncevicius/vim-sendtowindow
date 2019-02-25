@@ -45,10 +45,10 @@ Or manually copy the contents of the **plugin** folder to your
 
 By default it uses the following maps:
 
-* `<space>l` sends to the left window
+* `<space>l` sends to the right window
 * `<space>k` sends to the top window
 * `<space>j` sends to the bottom window
-* `<space>h` sends to the right window
+* `<space>h` sends to the left window
 
 In order to change the above key maps add the following to you *vimrc*:
 
