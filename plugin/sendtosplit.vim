@@ -21,9 +21,13 @@ function! s:SendToWindow(type, direction)
   normal! gp
   " Ammend end of line charater based on buffer type
   if &buftype ==# "terminal"
-    " Insert two newlines to assure running (even in whitespace languages)
-    let @k="\r\r"
+    let @k="\r"
     normal! "kp
+    " Add a terminal newline at the end of the buffer
+    if s:endofline
+      let @k="\r"
+      normal! "kp
+    endif
   elseif s:endofline
     let @k="\n"
     normal! "kp
