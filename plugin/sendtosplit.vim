@@ -1,6 +1,7 @@
 function! s:SendToWindow(type, direction)
   let s:saved_register=@@
   let s:saved_registerK=@k
+  let s:saved_pos=getpos(".")
   " Obtain wanted text
   if a:type == 'v' || a:type=='V' || a:type=="\<C-V>"
     normal! `<v`>y
@@ -16,16 +17,29 @@ function! s:SendToWindow(type, direction)
     let s:endofline = 1
   endif
   " Go to the wanted split
+  let s:winnr = winnr()
   execute "wincmd " . a:direction
-  " Insert text
-  normal! gp
-  " Ammend end of line charater based on buffer type
+  if winnr() == s:winnr
+    echom "No window in selected direction!"
+    call setpos(".", s:saved_pos)
+    return
+  endif
+  " Insert text and ammend end of line charater based on buffer type
   if &buftype ==# "terminal"
     let @k="\r"
-    normal! "kp
+    if has('nvim')
+      normal! gp
+      normal! "kp
+    else
+      normal! gp
+      normal! "kp
+    endif
   elseif s:endofline
+    normal! gp
     let @k="\n"
     normal! "kp
+  else
+    normal! gp
   endif
   wincmd p
   " Position the cursor for the next action
