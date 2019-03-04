@@ -4,11 +4,11 @@ function! s:SendToWindow(type, direction)
   let s:saved_pos=getpos(".")
   " Obtain wanted text
   if a:type == 'v' || a:type=='V' || a:type=="\<C-V>"
-    normal! `<v`>y
+    keepjumps normal! `<v`>y
   elseif a:type ==# "char"
-    normal! `[v`]y
+    keepjumps normal! `[v`]y
   elseif a:type ==# "line"
-    normal! `[V`]$y
+    keepjumps normal! `[V`]$y
   endif
   " Was the cursor at the end of line?
   call setpos(".", getpos("'>"))
