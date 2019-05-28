@@ -31,8 +31,8 @@ function! s:SendToWindow(type, direction)
       normal! gp
       normal! "kp
     else
-      normal! gp
-      normal! "kp
+      call term_sendkeys('', @0)
+      call term_sendkeys('', "\r")
     endif
   elseif s:endofline
     normal! gp
