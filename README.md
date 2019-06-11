@@ -37,7 +37,8 @@ Or manually copy the contents of the **plugin** folder to your
 
 ## Features ##
 
-* Text can be defined by motions and text objects
+* Can send text between any two adjacent vim windows.
+* Text can be defined by visual selection, motions and text objects.
 * Tries to position the cursor in a convenient place after each call.
 * Dot repeatable.
 
