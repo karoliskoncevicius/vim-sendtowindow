@@ -54,6 +54,10 @@ By default it uses the following maps:
 In order to change the above key maps add the following to you *vimrc*:
 
     let g:sendtowindow_use_defaults=0
+
+And then remap the commands as you see fit.
+For example this would map all the commands to L, H, K and J respectively:
+
     nmap L <Plug>SendRight
     xmap L <Plug>SendRightV
     nmap H <Plug>SendLeft
@@ -62,6 +66,4 @@ In order to change the above key maps add the following to you *vimrc*:
     xmap K <Plug>SendUpV
     nmap J <Plug>SendDown
     xmap J <Plug>SendDownV
-
-This would map all the commands to L, H, K and J respectively.
 
