@@ -1,10 +1,15 @@
 function! s:SendToWindow(type, direction)
+
   let s:saved_register = @@
   let s:saved_registerK = @k
   let s:saved_pos = getpos(".")
+
   " Obtain wanted text
   if a:type == 'v' || a:type == 'V' || a:type == "\<C-V>"
     keepjumps normal! `<v`>y
+    if a:type == 'V'
+      let @@ = substitute(@@, '\n$', '', '')
+    endif
     call setpos(".", getpos("'>"))
   elseif a:type ==# "char"
     keepjumps normal! `[v`]y
@@ -13,11 +18,13 @@ function! s:SendToWindow(type, direction)
     keepjumps normal! `[V`]$y
     call setpos(".", getpos("']"))
   endif
+
   " Was the cursor at the end of line?
   let s:endofline = 0
   if col(".") >=# col("$")-1
     let s:endofline = 1
   endif
+
   " Go to the wanted split
   let s:winnr = winnr()
   execute "wincmd " . a:direction
@@ -26,6 +33,7 @@ function! s:SendToWindow(type, direction)
     call setpos(".", s:saved_pos)
     return
   endif
+
   " Insert text and ammend end of line charater based on buffer type
   if &buftype ==# "terminal"
     let @k = "\r"
@@ -44,15 +52,18 @@ function! s:SendToWindow(type, direction)
     normal! gp
   endif
   wincmd p
+
   " Position the cursor for the next action
   if s:endofline
     normal! j0
   elseif a:type ==# "char"
     normal! l
   endif
+
   " Restore register
   let @@ = s:saved_register
   let @k = s:saved_registerK
+
 endfunction
 
 function! s:SendRight(type)
