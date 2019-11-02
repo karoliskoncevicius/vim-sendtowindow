@@ -1,17 +1,19 @@
 function! s:SendToWindow(type, direction)
-  let s:saved_register=@@
-  let s:saved_registerK=@k
-  let s:saved_pos=getpos(".")
+  let s:saved_register = @@
+  let s:saved_registerK = @k
+  let s:saved_pos = getpos(".")
   " Obtain wanted text
-  if a:type == 'v' || a:type=='V' || a:type=="\<C-V>"
+  if a:type == 'v' || a:type == 'V' || a:type == "\<C-V>"
     keepjumps normal! `<v`>y
+    call setpos(".", getpos("'>"))
   elseif a:type ==# "char"
     keepjumps normal! `[v`]y
+    call setpos(".", getpos("']"))
   elseif a:type ==# "line"
     keepjumps normal! `[V`]$y
+    call setpos(".", getpos("']"))
   endif
   " Was the cursor at the end of line?
-  call setpos(".", getpos("'>"))
   let s:endofline = 0
   if col(".") >=# col("$")-1
     let s:endofline = 1
@@ -26,7 +28,7 @@ function! s:SendToWindow(type, direction)
   endif
   " Insert text and ammend end of line charater based on buffer type
   if &buftype ==# "terminal"
-    let @k="\r"
+    let @k = "\r"
     if has('nvim')
       normal! gp
       normal! "kp
@@ -36,7 +38,7 @@ function! s:SendToWindow(type, direction)
     endif
   elseif s:endofline
     normal! gp
-    let @k="\n"
+    let @k = "\n"
     normal! "kp
   else
     normal! gp
@@ -49,8 +51,8 @@ function! s:SendToWindow(type, direction)
     normal! l
   endif
   " Restore register
-  let @@=s:saved_register
-  let @k=s:saved_registerK
+  let @@ = s:saved_register
+  let @k = s:saved_registerK
 endfunction
 
 function! s:SendRight(type)
