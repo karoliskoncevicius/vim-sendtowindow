@@ -67,3 +67,19 @@ For example this would map all the commands to L, H, K and J respectively:
     nmap J <Plug>SendDown
     xmap J <Plug>SendDownV
 
+## See Also ##
+
+If instead you are looking for a less minimal plugin with more auto-magic, here is a list to choose from:
+
+- [jpalardy/vim-slime](https://github.com/jpalardy/vim-slime)
+- [jgdavey/tslime.vim](https://github.com/jgdavey/tslime.vim)
+- [Vigemus/iron.nvim](https://github.com/Vigemus/iron.nvim)
+- [kassio/neoterm](https://github.com/kassio/neoterm)
+- [sillybun/vim-repl](https://github.com/sillybun/vim-repl)
+- [rhysd/reply.vim](https://github.com/rhysd/reply.vim)
+- [khorser/vim-repl](https://github.com/khorser/vim-repl)
+- [benmills/vimux](https://github.com/benmills/vimux)
+- [jebaum/vim-tmuxify](https://github.com/jebaum/vim-tmuxify)
+- [ervandew/screen](https://github.com/ervandew/screen)
+- [urbainvaes/vim-ripple](https://github.com/urbainvaes/vim-ripple)
+
