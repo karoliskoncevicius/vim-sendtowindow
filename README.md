@@ -69,7 +69,7 @@ For example this would map all the commands to L, H, K and J respectively:
 
 ## See Also ##
 
-If instead you are looking for a less minimal plugin with more auto-magic, here is a list to choose from:
+If instead you are looking for a less minimal plugin with more features and auto-magic, here is a list to choose from:
 
 - [jpalardy/vim-slime](https://github.com/jpalardy/vim-slime)
 - [jgdavey/tslime.vim](https://github.com/jgdavey/tslime.vim)
