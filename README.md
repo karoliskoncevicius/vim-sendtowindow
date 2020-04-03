@@ -82,5 +82,6 @@ If instead you are looking for a plugin with more features and auto-magic, here 
 - [sillybun/vim-repl](https://github.com/sillybun/vim-repl)
 - [khorser/vim-repl](https://github.com/khorser/vim-repl)
 - [rhysd/reply.vim](https://github.com/rhysd/reply.vim)
+- [habamax/vim-sendtoterm](https://github.com/habamax/vim-sendtoterm)
 - [urbainvaes/vim-ripple](https://github.com/urbainvaes/vim-ripple)
 
