@@ -1,3 +1,14 @@
+" vim-sendtowindow - Operator for sending text to adjacent windows.
+" Maintainer: Karolis Koncevičius (karolis.koncevicius@gmail.com)
+" Website: https://github.com/KKPMW/vim-sendtowindow
+
+
+if exists("g:loaded_sendtowindow") || &compatible
+  finish
+endif
+let g:loaded_sendtowindow = 1
+
+
 function! s:SendToWindow(type, direction)
 
   let s:saved_register = @@
@@ -66,6 +77,7 @@ function! s:SendToWindow(type, direction)
 
 endfunction
 
+
 function! s:SendRight(type)
   call s:SendToWindow(a:type, 'l')
 endfunction
@@ -79,6 +91,7 @@ function! s:SendDown(type)
   call s:SendToWindow(a:type, 'j')
 endfunction
 
+
 nnoremap <silent> <Plug>SendUp    :<C-U> set operatorfunc=<SID>SendUp<CR>g@
 nnoremap <silent> <Plug>SendDown  :<C-U> set operatorfunc=<SID>SendDown<CR>g@
 nnoremap <silent> <Plug>SendRight :<C-U> set operatorfunc=<SID>SendRight<CR>g@
@@ -88,6 +101,7 @@ vnoremap <silent> <Plug>SendUpV    :<C-U> call <SID>SendUp(visualmode())<CR>
 vnoremap <silent> <Plug>SendDownV  :<C-U> call <SID>SendDown(visualmode())<CR>
 vnoremap <silent> <Plug>SendRightV :<C-U> call <SID>SendRight(visualmode())<CR>
 vnoremap <silent> <Plug>SendLeftV  :<C-U> call <SID>SendLeft(visualmode())<CR>
+
 
 if !exists("g:sendtowindow_use_defaults") || g:sendtowindow_use_defaults
   nmap <space>l <Plug>SendRight

@@ -51,7 +51,7 @@ By default it uses the following maps:
 * `<space>j` sends to the bottom window
 * `<space>h` sends to the left window
 
-In order to change the above key maps add the following to you *vimrc*:
+In order to change the above key maps add the following to your *vimrc*:
 
     let g:sendtowindow_use_defaults=0
 
