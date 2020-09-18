@@ -1,6 +1,6 @@
 " vim-sendtowindow - Operator for sending text to adjacent windows.
 " Maintainer: Karolis Koncevičius (karolis.koncevicius@gmail.com)
-" Website: https://github.com/KKPMW/vim-sendtowindow
+" Website: https://github.com/karoliskoncevicius/vim-sendtowindow
 
 
 if exists("g:loaded_sendtowindow") || &compatible
