@@ -30,7 +30,7 @@ Main use case is sending code to and from the REPL running inside `:terminal` bu
 
 With your favorite plugin manager. In my case it's vim-plug:
 
-`Plug 'KKPMW/vim-sendtowindow'`
+`Plug 'karoliskoncevicius/vim-sendtowindow'`
 
 Or manually copy the contents of the **plugin** folder to your
 **./vim/plugin/** directory.
