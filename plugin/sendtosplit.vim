@@ -47,7 +47,6 @@ function! s:SendToWindow(type, direction)
 
   " Insert text and ammend end of line charater based on buffer type
   if &buftype ==# "terminal"
-    let @k = "\r"
     if has('nvim')
       normal! gp
       call chansend(b:terminal_job_id, "\r")
